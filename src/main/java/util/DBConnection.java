@@ -20,29 +20,24 @@ public class DBConnection {
         }
     }
     
-    public static Connection getConnection() {
+    public static Connection getConnection() throws SQLException {
         Connection conn = null;
-        try {
-            String dbUrl = System.getenv("JDBC_DATABASE_URL");
-            
-            if (dbUrl != null && !dbUrl.isEmpty()) {
-                conn = DriverManager.getConnection(dbUrl);
-            } else {
-                // Fallback for local development if env var is not set
-                String url = "jdbc:postgresql://localhost:5432/ksstudio";
-                String user = "postgres";
-                String password = "postgres123"; 
-                conn = DriverManager.getConnection(url, user, password);
-            }
-
-            if (conn != null) {
-                conn.setAutoCommit(true);
-            }
-            return conn;
-        } catch (SQLException e) {
-            System.err.println("Database connection failed: " + e.getMessage());
-            return null;
+        String dbUrl = System.getenv("JDBC_DATABASE_URL");
+        
+        if (dbUrl != null && !dbUrl.isEmpty()) {
+            conn = DriverManager.getConnection(dbUrl);
+        } else {
+            // Fallback for local development if env var is not set
+            String url = "jdbc:postgresql://localhost:5432/ksstudio";
+            String user = "postgres";
+            String password = "postgres123"; 
+            conn = DriverManager.getConnection(url, user, password);
         }
+
+        if (conn != null) {
+            conn.setAutoCommit(true);
+        }
+        return conn;
     }
     
     public static void closeConnection(Connection conn) {
