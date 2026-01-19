@@ -116,7 +116,7 @@ public class PaymentDAO {
      * Record deposit payment
      */
     public boolean recordDeposit(int payId, String reference, double amount) {
-        String sql = "UPDATE payment SET depopref = ?, depopdate = SYSDATE, " +
+        String sql = "UPDATE payment SET depopref = ?, depopdate = CURRENT_DATE, " +
                      "paidamount = paidamount + ?, remamount = remamount - ?, " +
                      "paystatus = CASE WHEN remamount - ? <= 0 THEN 'paid' ELSE 'partial' END " +
                      "WHERE payid = ?";
@@ -140,7 +140,7 @@ public class PaymentDAO {
      * Record full payment
      */
     public boolean recordFullPayment(int payId, String reference, double amount) {
-        String sql = "UPDATE payment SET fullpref = ?, fullpdate = SYSDATE, " +
+        String sql = "UPDATE payment SET fullpref = ?, fullpdate = CURRENT_DATE, " +
                      "paidamount = paidamount + ?, remamount = remamount - ?, " +
                      "paystatus = CASE WHEN remamount - ? <= 0 THEN 'paid' ELSE 'partial' END " +
                      "WHERE payid = ?";
@@ -185,7 +185,7 @@ public class PaymentDAO {
      * Client submits deposit payment - updates DEPOPREF column
      */
     public boolean submitDepositPayment(int bookingId, String reference, double amount, String receiptPath) {
-        String sql = "UPDATE payment SET depopref = ?, depopdate = SYSDATE, deporeceipt = ?, paystatus = 'submitted' " +
+        String sql = "UPDATE payment SET depopref = ?, depopdate = CURRENT_DATE, deporeceipt = ?, paystatus = 'submitted' " +
                      "WHERE bookingid = ?";
         
         try (Connection conn = DBConnection.getConnection();
@@ -205,7 +205,7 @@ public class PaymentDAO {
      * Client submits full/remaining payment - updates FULLPREF column
      */
     public boolean submitFullPayment(int bookingId, String reference, double amount, String receiptPath) {
-        String sql = "UPDATE payment SET fullpref = ?, fullpdate = SYSDATE, fullreceipt = ?, paystatus = 'submitted' " +
+        String sql = "UPDATE payment SET fullpref = ?, fullpdate = CURRENT_DATE, fullreceipt = ?, paystatus = 'submitted' " +
                      "WHERE bookingid = ?";
         
         try (Connection conn = DBConnection.getConnection();
@@ -227,8 +227,8 @@ public class PaymentDAO {
     public boolean verifyPayment(int payId, int verifiedBy) {
         // First get the current payment to check deposit amount
         String selectSql = "SELECT bookingid, remamount FROM payment WHERE payid = ?";
-        String updateSql = "UPDATE payment SET paystatus = 'verified', verifiedby = ?, verifieddate = SYSDATE " +
-                          "WHERE payid = ?";
+        String updateSql = "UPDATE payment SET paystatus = 'verified', verifiedby = ?, verifieddate = CURRENT_DATE " +
+                           "WHERE payid = ?";
         
         try (Connection conn = DBConnection.getConnection()) {
             // Just update status to verified
@@ -249,7 +249,7 @@ public class PaymentDAO {
     public boolean verifyDepositPayment(int payId, double depositAmount, int verifiedBy) {
         String sql = "UPDATE payment SET paidamount = paidamount + ?, remamount = remamount - ?, " +
                      "paystatus = CASE WHEN remamount - ? <= 0 THEN 'verified' ELSE 'partial' END, " +
-                     "verifiedby = ?, verifieddate = SYSDATE " +
+                     "verifiedby = ?, verifieddate = CURRENT_DATE " +
                      "WHERE payid = ?";
         
         try (Connection conn = DBConnection.getConnection();
@@ -272,7 +272,7 @@ public class PaymentDAO {
      */
     public boolean verifyFullPayment(int payId, double fullAmount, int verifiedBy) {
         String sql = "UPDATE payment SET paidamount = paidamount + ?, remamount = remamount - ?, " +
-                     "paystatus = 'verified', verifiedby = ?, verifieddate = SYSDATE " +
+                     "paystatus = 'verified', verifiedby = ?, verifieddate = CURRENT_DATE " +
                      "WHERE payid = ?";
         
         try (Connection conn = DBConnection.getConnection();
@@ -293,7 +293,7 @@ public class PaymentDAO {
      * Reject payment
      */
     public boolean rejectPayment(int payId, int verifiedBy) {
-        String sql = "UPDATE payment SET paystatus = 'rejected', verifiedby = ?, verifieddate = SYSDATE " +
+        String sql = "UPDATE payment SET paystatus = 'rejected', verifiedby = ?, verifieddate = CURRENT_DATE " +
                      "WHERE payid = ?";
         
         try (Connection conn = DBConnection.getConnection();
