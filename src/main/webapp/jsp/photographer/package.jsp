@@ -15,7 +15,7 @@
                     rel="stylesheet">
                 <link href="${pageContext.request.contextPath}/assets/vendor/bootstrap-icons/bootstrap-icons.css"
                     rel="stylesheet">
-                <link href="${pageContext.request.contextPath}/assets/css/photographer-style.css" rel="stylesheet">
+                <link href="${pageContext.request.contextPath}/assets/css/photographer-style.css?v=2" rel="stylesheet">
             </head>
 
             <body>
