@@ -57,6 +57,7 @@ CREATE TABLE package (
     pkgduration DECIMAL(5,2),
     eventtype VARCHAR(100),
     pkgdesc VARCHAR(500),
+    pkgimage VARCHAR(500),
     pkgstatus VARCHAR(20) DEFAULT 'active',
     createdby INTEGER,
     createddate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

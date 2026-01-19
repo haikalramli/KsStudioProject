@@ -97,15 +97,16 @@ public class PackageDAO {
             conn.setAutoCommit(false);
             
             // Insert into package table
-            String sql1 = "INSERT INTO package (pkgname, pkgprice, pkgcateg, pkgduration, eventtype, pkgdesc, createdby) " +
-                         "VALUES (?, ?, 'Indoor', ?, ?, ?, ?)";
+            String sql1 = "INSERT INTO package (pkgname, pkgprice, pkgcateg, pkgduration, eventtype, pkgdesc, pkgimage, createdby) " +
+                         "VALUES (?, ?, 'Indoor', ?, ?, ?, ?, ?)";
             PreparedStatement ps1 = conn.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
             ps1.setString(1, pkg.getPkgName());
             ps1.setDouble(2, pkg.getPkgPrice());
             ps1.setDouble(3, pkg.getPkgDuration());
             ps1.setString(4, pkg.getEventType());
             ps1.setString(5, pkg.getPkgDesc());
-            ps1.setInt(6, pkg.getCreatedBy());
+            ps1.setString(6, pkg.getPkgImage());
+            ps1.setInt(7, pkg.getCreatedBy());
             ps1.executeUpdate();
             
             // Get generated ID
@@ -144,15 +145,16 @@ public class PackageDAO {
             conn.setAutoCommit(false);
             
             // Insert into package table
-            String sql1 = "INSERT INTO package (pkgname, pkgprice, pkgcateg, pkgduration, eventtype, pkgdesc, createdby) " +
-                         "VALUES (?, ?, 'Outdoor', ?, ?, ?, ?)";
+            String sql1 = "INSERT INTO package (pkgname, pkgprice, pkgcateg, pkgduration, eventtype, pkgdesc, pkgimage, createdby) " +
+                         "VALUES (?, ?, 'Outdoor', ?, ?, ?, ?, ?)";
             PreparedStatement ps1 = conn.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
             ps1.setString(1, pkg.getPkgName());
             ps1.setDouble(2, pkg.getPkgPrice());
             ps1.setDouble(3, pkg.getPkgDuration());
             ps1.setString(4, pkg.getEventType());
             ps1.setString(5, pkg.getPkgDesc());
-            ps1.setInt(6, pkg.getCreatedBy());
+            ps1.setString(6, pkg.getPkgImage());
+            ps1.setInt(7, pkg.getCreatedBy());
             ps1.executeUpdate();
             
             // Get generated ID
@@ -191,15 +193,31 @@ public class PackageDAO {
             conn = DBConnection.getConnection();
             conn.setAutoCommit(false);
             
-            String sql1 = "UPDATE package SET pkgname = ?, pkgprice = ?, pkgduration = ?, eventtype = ?, pkgdesc = ?, pkgstatus = ? WHERE pkgid = ?";
-            PreparedStatement ps1 = conn.prepareStatement(sql1);
-            ps1.setString(1, pkg.getPkgName());
-            ps1.setDouble(2, pkg.getPkgPrice());
-            ps1.setDouble(3, pkg.getPkgDuration());
-            ps1.setString(4, pkg.getEventType());
-            ps1.setString(5, pkg.getPkgDesc());
-            ps1.setString(6, pkg.getPkgStatus());
-            ps1.setInt(7, pkg.getPkgId());
+            String sql1;
+            PreparedStatement ps1;
+            
+            if (pkg.getPkgImage() != null && !pkg.getPkgImage().isEmpty()) {
+                sql1 = "UPDATE package SET pkgname = ?, pkgprice = ?, pkgduration = ?, eventtype = ?, pkgdesc = ?, pkgstatus = ?, pkgimage = ? WHERE pkgid = ?";
+                ps1 = conn.prepareStatement(sql1);
+                ps1.setString(1, pkg.getPkgName());
+                ps1.setDouble(2, pkg.getPkgPrice());
+                ps1.setDouble(3, pkg.getPkgDuration());
+                ps1.setString(4, pkg.getEventType());
+                ps1.setString(5, pkg.getPkgDesc());
+                ps1.setString(6, pkg.getPkgStatus());
+                ps1.setString(7, pkg.getPkgImage());
+                ps1.setInt(8, pkg.getPkgId());
+            } else {
+                sql1 = "UPDATE package SET pkgname = ?, pkgprice = ?, pkgduration = ?, eventtype = ?, pkgdesc = ?, pkgstatus = ? WHERE pkgid = ?";
+                ps1 = conn.prepareStatement(sql1);
+                ps1.setString(1, pkg.getPkgName());
+                ps1.setDouble(2, pkg.getPkgPrice());
+                ps1.setDouble(3, pkg.getPkgDuration());
+                ps1.setString(4, pkg.getEventType());
+                ps1.setString(5, pkg.getPkgDesc());
+                ps1.setString(6, pkg.getPkgStatus());
+                ps1.setInt(7, pkg.getPkgId());
+            }
             ps1.executeUpdate();
             
             String sql2 = "UPDATE indoor SET numofpax = ?, backgtype = ? WHERE pkgid = ?";
@@ -229,15 +247,31 @@ public class PackageDAO {
             conn = DBConnection.getConnection();
             conn.setAutoCommit(false);
             
-            String sql1 = "UPDATE package SET pkgname = ?, pkgprice = ?, pkgduration = ?, eventtype = ?, pkgdesc = ?, pkgstatus = ? WHERE pkgid = ?";
-            PreparedStatement ps1 = conn.prepareStatement(sql1);
-            ps1.setString(1, pkg.getPkgName());
-            ps1.setDouble(2, pkg.getPkgPrice());
-            ps1.setDouble(3, pkg.getPkgDuration());
-            ps1.setString(4, pkg.getEventType());
-            ps1.setString(5, pkg.getPkgDesc());
-            ps1.setString(6, pkg.getPkgStatus());
-            ps1.setInt(7, pkg.getPkgId());
+            String sql1;
+            PreparedStatement ps1;
+            
+            if (pkg.getPkgImage() != null && !pkg.getPkgImage().isEmpty()) {
+                 sql1 = "UPDATE package SET pkgname = ?, pkgprice = ?, pkgduration = ?, eventtype = ?, pkgdesc = ?, pkgstatus = ?, pkgimage = ? WHERE pkgid = ?";
+                 ps1 = conn.prepareStatement(sql1);
+                 ps1.setString(1, pkg.getPkgName());
+                 ps1.setDouble(2, pkg.getPkgPrice());
+                 ps1.setDouble(3, pkg.getPkgDuration());
+                 ps1.setString(4, pkg.getEventType());
+                 ps1.setString(5, pkg.getPkgDesc());
+                 ps1.setString(6, pkg.getPkgStatus());
+                 ps1.setString(7, pkg.getPkgImage());
+                 ps1.setInt(8, pkg.getPkgId());
+            } else {
+                 sql1 = "UPDATE package SET pkgname = ?, pkgprice = ?, pkgduration = ?, eventtype = ?, pkgdesc = ?, pkgstatus = ? WHERE pkgid = ?";
+                 ps1 = conn.prepareStatement(sql1);
+                 ps1.setString(1, pkg.getPkgName());
+                 ps1.setDouble(2, pkg.getPkgPrice());
+                 ps1.setDouble(3, pkg.getPkgDuration());
+                 ps1.setString(4, pkg.getEventType());
+                 ps1.setString(5, pkg.getPkgDesc());
+                 ps1.setString(6, pkg.getPkgStatus());
+                 ps1.setInt(7, pkg.getPkgId());
+            }
             ps1.executeUpdate();
             
             String sql2 = "UPDATE outdoor SET distance = ?, distancepriceperkm = ?, location = ? WHERE pkgid = ?";
@@ -305,6 +339,7 @@ public class PackageDAO {
         p.setPkgDuration(rs.getDouble("pkgduration"));
         p.setEventType(rs.getString("eventtype"));
         p.setPkgDesc(rs.getString("pkgdesc"));
+        p.setPkgImage(rs.getString("pkgimage"));
         p.setPkgStatus(rs.getString("pkgstatus"));
         p.setCreatedBy(rs.getInt("createdby"));
         p.setCreatedDate(rs.getDate("createddate"));

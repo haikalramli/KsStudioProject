@@ -4,19 +4,29 @@ import dao.PackageDAO;
 import model.PackageModel;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.Part;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
+import java.nio.file.Paths;
 
 /**
  * PackageServlet - For Photographer to manage packages
  * Packages created here will be visible to Clients
  */
 @WebServlet(name = "PackageServlet", urlPatterns = {"/package", "/PackageServlet"})
+@MultipartConfig(
+    fileSizeThreshold = 1024 * 1024 * 1, // 1 MB
+    maxFileSize = 1024 * 1024 * 10,      // 10 MB
+    maxRequestSize = 1024 * 1024 * 15    // 15 MB
+)
 public class PackageServlet extends HttpServlet {
     
     private PackageDAO packageDAO;
@@ -168,6 +178,11 @@ public class PackageServlet extends HttpServlet {
         pkg.setBackgType(request.getParameter("backgType"));
         pkg.setCreatedBy(createdBy);
         
+        String imagePath = uploadImage(request);
+        if (imagePath != null) {
+            pkg.setPkgImage(imagePath);
+        }
+        
         if (packageDAO.createIndoorPackage(pkg)) {
             request.setAttribute("success", "Indoor package created successfully! Clients can now view and book it.");
         } else {
@@ -190,6 +205,11 @@ public class PackageServlet extends HttpServlet {
         pkg.setDistancePricePerKm(Double.parseDouble(request.getParameter("pricePerKm")));
         pkg.setLocation(request.getParameter("location"));
         pkg.setCreatedBy(createdBy);
+        
+        String imagePath = uploadImage(request);
+        if (imagePath != null) {
+            pkg.setPkgImage(imagePath);
+        }
         
         if (packageDAO.createOutdoorPackage(pkg)) {
             request.setAttribute("success", "Outdoor package created successfully! Clients can now view and book it.");
@@ -218,6 +238,11 @@ public class PackageServlet extends HttpServlet {
         existing.setEventType(request.getParameter("eventType"));
         existing.setPkgDesc(request.getParameter("pkgDesc"));
         existing.setPkgStatus(request.getParameter("pkgStatus"));
+        
+        String imagePath = uploadImage(request);
+        if (imagePath != null) {
+            existing.setPkgImage(imagePath);
+        }
         
         boolean success;
         if (existing.isIndoor()) {
@@ -252,5 +277,36 @@ public class PackageServlet extends HttpServlet {
         }
         
         displayPackages(request, response);
+    }
+
+    
+    private String uploadImage(HttpServletRequest request) throws IOException, ServletException {
+        try {
+            Part filePart = request.getPart("pkgImage");
+            if (filePart != null && filePart.getSize() > 0) {
+                String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+                // Simple validation
+                if (fileName == null || fileName.isEmpty()) return null;
+                
+                String fileExt = "";
+                int i = fileName.lastIndexOf('.');
+                if (i > 0) {
+                    fileExt = fileName.substring(i);
+                }
+                
+                String newFileName = UUID.randomUUID().toString() + fileExt;
+                
+                // Upload directory - ensuring it works even if path has spaces
+                String uploadPath = getServletContext().getRealPath("") + File.separator + "uploads" + File.separator + "packages";
+                File uploadDir = new File(uploadPath);
+                if (!uploadDir.exists()) uploadDir.mkdirs();
+                
+                filePart.write(uploadPath + File.separator + newFileName);
+                return "uploads/packages/" + newFileName;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

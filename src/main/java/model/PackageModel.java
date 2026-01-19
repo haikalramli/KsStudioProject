@@ -10,6 +10,7 @@ public class PackageModel {
     private double pkgDuration;
     private String eventType;
     private String pkgDesc;
+    private String pkgImage;
     private String pkgStatus;
     private int createdBy;
     private Date createdDate;
@@ -47,6 +48,9 @@ public class PackageModel {
     
     public String getPkgDesc() { return pkgDesc; }
     public void setPkgDesc(String pkgDesc) { this.pkgDesc = pkgDesc; }
+
+    public String getPkgImage() { return pkgImage; }
+    public void setPkgImage(String pkgImage) { this.pkgImage = pkgImage; }
     
     public String getPkgStatus() { return pkgStatus; }
     public void setPkgStatus(String pkgStatus) { this.pkgStatus = pkgStatus; }
