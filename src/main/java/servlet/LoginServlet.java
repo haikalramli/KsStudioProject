@@ -37,6 +37,8 @@ public class LoginServlet extends HttpServlet {
         
         if (email == null || email.trim().isEmpty() || password == null || password.isEmpty()) {
             request.setAttribute("error", "Please enter email and password");
+            request.setAttribute("error", "Please enter email and password");
+            request.setAttribute("loginType", loginType);
             request.getRequestDispatcher("/jsp/photographer/login.jsp").forward(request, response);
             return;
         }
@@ -54,7 +56,12 @@ public class LoginServlet extends HttpServlet {
             
             if (!canLogin && loginType != null) {
                 request.setAttribute("error", "You don't have permission for this login type");
+            if (!canLogin && loginType != null) {
+                request.setAttribute("error", "You don't have permission for this login type");
+                request.setAttribute("loginType", loginType);
                 request.getRequestDispatcher("/jsp/photographer/login.jsp").forward(request, response);
+                return;
+            }
                 return;
             }
             
@@ -69,6 +76,8 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/calendar");
         } else {
             request.setAttribute("error", "Invalid email or password");
+            request.setAttribute("error", "Invalid email or password");
+            request.setAttribute("loginType", loginType);
             request.getRequestDispatcher("/jsp/photographer/login.jsp").forward(request, response);
         }
     }
