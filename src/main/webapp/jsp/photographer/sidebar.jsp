@@ -2,6 +2,26 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
         <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
+            <style>
+                /* Force hide scrollbar for sidebar navigation */
+                .sidebar-nav {
+                    -ms-overflow-style: none !important;
+                    /* IE and Edge */
+                    scrollbar-width: none !important;
+                    /* Firefox */
+                    overflow-y: scroll !important;
+                    /* Ensure functionality */
+                }
+
+                .sidebar-nav::-webkit-scrollbar {
+                    display: none !important;
+                    /* Chrome, Safari and Opera */
+                    width: 0 !important;
+                    height: 0 !important;
+                    background: transparent !important;
+                }
+            </style>
+
             <aside class="sidebar">
                 <div class="sidebar-header">
                     <a href="${pageContext.request.contextPath}/calendar" class="logo">
