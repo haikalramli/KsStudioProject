@@ -11,7 +11,7 @@ public class PhotoDAO {
     
     public int create(Photo photo) {
         String sql = "INSERT INTO photo (folderlink, foldername, folderdupload, uploadedby, notesforclient) " +
-                     "VALUES (?, ?, SYSDATE, ?, ?)";
+                     "VALUES (?, ?, CURRENT_DATE, ?, ?)";
         
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql, new String[]{"FOLDERID"})) {
