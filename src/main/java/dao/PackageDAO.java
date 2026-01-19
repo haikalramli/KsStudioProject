@@ -130,7 +130,12 @@ public class PackageDAO {
             try { if (conn != null) conn.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             e.printStackTrace();
         } finally {
-            try { if (conn != null) conn.setAutoCommit(true); } catch (SQLException e) { e.printStackTrace(); }
+            try { 
+                if (conn != null) {
+                    conn.setAutoCommit(true); 
+                    conn.close();
+                }
+            } catch (SQLException e) { e.printStackTrace(); }
         }
         return false;
     }
@@ -179,7 +184,12 @@ public class PackageDAO {
             try { if (conn != null) conn.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             e.printStackTrace();
         } finally {
-            try { if (conn != null) conn.setAutoCommit(true); } catch (SQLException e) { e.printStackTrace(); }
+            try { 
+                if (conn != null) {
+                    conn.setAutoCommit(true); 
+                    conn.close();
+                }
+            } catch (SQLException e) { e.printStackTrace(); }
         }
         return false;
     }
@@ -233,7 +243,12 @@ public class PackageDAO {
             try { if (conn != null) conn.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             e.printStackTrace();
         } finally {
-            try { if (conn != null) conn.setAutoCommit(true); } catch (SQLException e) { e.printStackTrace(); }
+            try { 
+                if (conn != null) {
+                    conn.setAutoCommit(true); 
+                    conn.close();
+                }
+            } catch (SQLException e) { e.printStackTrace(); }
         }
         return false;
     }
@@ -288,7 +303,12 @@ public class PackageDAO {
             try { if (conn != null) conn.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             e.printStackTrace();
         } finally {
-            try { if (conn != null) conn.setAutoCommit(true); } catch (SQLException e) { e.printStackTrace(); }
+            try { 
+                if (conn != null) {
+                    conn.setAutoCommit(true); 
+                    conn.close();
+                }
+            } catch (SQLException e) { e.printStackTrace(); }
         }
         return false;
     }
