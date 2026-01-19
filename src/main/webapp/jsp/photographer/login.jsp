@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="jakarta.tags.core" prefix="c" %>
         <% // Try to get loginType from attribute (set by servlet on error) String loginType=(String)
             request.getAttribute("loginType"); // If null, try to get from query string 'type' parameter if
             (loginType==null) { loginType=request.getParameter("type"); } // If still null, try 'loginType' parameter
