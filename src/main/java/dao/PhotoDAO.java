@@ -14,7 +14,7 @@ public class PhotoDAO {
                      "VALUES (?, ?, CURRENT_DATE, ?, ?)";
         
         try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql, new String[]{"FOLDERID"})) {
+             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             
             stmt.setString(1, photo.getFolderLink());
             stmt.setString(2, photo.getFolderName());
