@@ -42,33 +42,29 @@
 
                         <!-- Stats -->
                         <div class="stats-row">
-                            <div class="stat-card">
-                                <div class="stat-icon" style="background: linear-gradient(135deg, #ff6b6b, #ee5a5a);"><i
-                                        class="bi bi-shield-check"></i></div>
+                            <div class="stat-card card-hover">
+                                <div class="stat-icon bg-gradient-danger"><i class="bi bi-shield-check"></i></div>
                                 <div class="stat-info">
                                     <span class="stat-label">Senior (Admin)</span>
                                     <span class="stat-value">${seniorCount}</span>
                                 </div>
                             </div>
-                            <div class="stat-card">
-                                <div class="stat-icon" style="background: linear-gradient(135deg, #0d6efd, #0a58ca);"><i
-                                        class="bi bi-camera-reels"></i></div>
+                            <div class="stat-card card-hover">
+                                <div class="stat-icon bg-gradient-primary"><i class="bi bi-camera-reels"></i></div>
                                 <div class="stat-info">
                                     <span class="stat-label">Junior</span>
                                     <span class="stat-value">${juniorCount}</span>
                                 </div>
                             </div>
-                            <div class="stat-card">
-                                <div class="stat-icon" style="background: linear-gradient(135deg, #ffd93d, #ffcd00);"><i
-                                        class="bi bi-person-badge"></i></div>
+                            <div class="stat-card card-hover">
+                                <div class="stat-icon bg-gradient-warning"><i class="bi bi-person-badge"></i></div>
                                 <div class="stat-info">
                                     <span class="stat-label">Intern</span>
                                     <span class="stat-value">${internCount}</span>
                                 </div>
                             </div>
-                            <div class="stat-card">
-                                <div class="stat-icon" style="background: linear-gradient(135deg, #6f42c1, #5a32a3);"><i
-                                        class="bi bi-people-fill"></i></div>
+                            <div class="stat-card card-hover">
+                                <div class="stat-icon bg-gradient-purple"><i class="bi bi-people-fill"></i></div>
                                 <div class="stat-info">
                                     <span class="stat-label">Total Staff</span>
                                     <span class="stat-value">${totalCount}</span>
@@ -83,7 +79,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table table-modern">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
@@ -145,7 +141,7 @@
                 <div class="modal fade" id="addStaffModal" tabindex="-1">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <div class="modal-header bg-primary text-white">
+                            <div class="modal-header bg-gradient-primary">
                                 <h5 class="modal-title"><i class="bi bi-person-plus"></i> Add New Photographer</h5>
                                 <button type="button" class="btn-close btn-close-white"
                                     data-bs-dismiss="modal"></button>
@@ -201,7 +197,7 @@
                 <div class="modal fade" id="editStaffModal" tabindex="-1">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <div class="modal-header bg-warning">
+                            <div class="modal-header bg-gradient-warning">
                                 <h5 class="modal-title"><i class="bi bi-pencil"></i> Edit Photographer</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>

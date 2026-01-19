@@ -591,7 +591,9 @@
                                                                                 <!-- Stats Cards -->
                                                                                 <div class="stats-grid">
                                                                                     <div class="stat-box bookings">
-                                                                                        <div class="stat-icon"><i
+                                                                                        <div
+                                                                                            class="stat-icon bg-gradient-primary">
+                                                                                            <i
                                                                                                 class="bi bi-calendar-check"></i>
                                                                                         </div>
                                                                                         <div class="stat-label">Total
@@ -609,7 +611,9 @@
                                                                                     </div>
 
                                                                                     <div class="stat-box revenue">
-                                                                                        <div class="stat-icon"><i
+                                                                                        <div
+                                                                                            class="stat-icon bg-gradient-warning">
+                                                                                            <i
                                                                                                 class="bi bi-cash-stack"></i>
                                                                                         </div>
                                                                                         <div class="stat-label">Total
@@ -633,7 +637,9 @@
                                                                                     </div>
 
                                                                                     <div class="stat-box verified">
-                                                                                        <div class="stat-icon"><i
+                                                                                        <div
+                                                                                            class="stat-icon bg-gradient-success">
+                                                                                            <i
                                                                                                 class="bi bi-check-circle"></i>
                                                                                         </div>
                                                                                         <div class="stat-label">Verified
@@ -651,7 +657,9 @@
                                                                                     </div>
 
                                                                                     <div class="stat-box pending">
-                                                                                        <div class="stat-icon"><i
+                                                                                        <div
+                                                                                            class="stat-icon bg-gradient-danger">
+                                                                                            <i
                                                                                                 class="bi bi-hourglass-split"></i>
                                                                                         </div>
                                                                                         <div class="stat-label">Pending
@@ -772,7 +780,8 @@
                                                                                             class="bi bi-table"></i>
                                                                                         Recent Bookings</h3>
                                                                                     <div class="table-responsive">
-                                                                                        <table class="table">
+                                                                                        <table
+                                                                                            class="table table-modern">
                                                                                             <thead>
                                                                                                 <tr>
                                                                                                     <th>Booking ID</th>

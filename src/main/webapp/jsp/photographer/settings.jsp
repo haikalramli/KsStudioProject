@@ -38,8 +38,8 @@
                         <div class="col-lg-4 mb-4">
                             <div class="card text-center">
                                 <div class="card-body py-5">
-                                    <div class="profile-avatar mb-4"
-                                        style="width: 120px; height: 120px; background: linear-gradient(135deg, #6f42c1, #d63384); border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                                    <div class="profile-avatar mb-4 bg-gradient-purple"
+                                        style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
                                         <i class="bi bi-person-fill text-white" style="font-size: 3rem;"></i>
                                     </div>
                                     <h4 class="mt-3">${photographer.pgName}</h4>
@@ -143,8 +143,7 @@
             <div class="modal fade" id="confirmPasswordModal" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content" style="border-radius: 16px;">
-                        <div class="modal-header"
-                            style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; border-radius: 16px 16px 0 0;">
+                        <div class="modal-header bg-gradient-warning">
                             <h5 class="modal-title"><i class="bi bi-shield-exclamation"></i> Confirm Password Change
                             </h5>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>

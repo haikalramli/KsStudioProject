@@ -36,25 +36,22 @@
 
                         <!-- Stats -->
                         <div class="stats-row">
-                            <div class="stat-card">
-                                <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);"><i
-                                        class="bi bi-hourglass-split"></i></div>
+                            <div class="stat-card card-hover">
+                                <div class="stat-icon bg-gradient-warning"><i class="bi bi-hourglass-split"></i></div>
                                 <div class="stat-info">
                                     <span class="stat-label">Pending Upload</span>
                                     <span class="stat-value">${pendingUpload.size()}</span>
                                 </div>
                             </div>
-                            <div class="stat-card">
-                                <div class="stat-icon" style="background: linear-gradient(135deg, #22c55e, #16a34a);"><i
-                                        class="bi bi-check-circle"></i></div>
+                            <div class="stat-card card-hover">
+                                <div class="stat-icon bg-gradient-success"><i class="bi bi-check-circle"></i></div>
                                 <div class="stat-info">
                                     <span class="stat-label">Completed Upload</span>
                                     <span class="stat-value">${completedUpload.size()}</span>
                                 </div>
                             </div>
-                            <div class="stat-card">
-                                <div class="stat-icon" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);"><i
-                                        class="bi bi-folder"></i></div>
+                            <div class="stat-card card-hover">
+                                <div class="stat-icon bg-gradient-purple"><i class="bi bi-folder"></i></div>
                                 <div class="stat-info">
                                     <span class="stat-label">Total Uploads</span>
                                     <span class="stat-value">${uploadHistory.size()}</span>
@@ -81,14 +78,14 @@
 
                         <!-- PENDING UPLOAD SECTION -->
                         <div class="card mb-4">
-                            <div class="card-header" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                            <div class="card-header bg-gradient-warning">
                                 <h3 class="text-white mb-0"><i class="bi bi-hourglass-split"></i> Pending Uploaded Photo
                                 </h3>
                             </div>
                             <div class="card-body">
                                 <p class="text-muted mb-3">Clients with verified payment waiting for photo upload:</p>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table table-modern">
                                         <thead>
                                             <tr>
                                                 <th>Booking ID</th>
@@ -151,7 +148,7 @@
 
                         <!-- COMPLETED UPLOAD SECTION -->
                         <div class="card mb-4">
-                            <div class="card-header" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
+                            <div class="card-header bg-gradient-success">
                                 <h3 class="text-white mb-0"><i class="bi bi-check-circle"></i> Completed Uploaded Photo
                                 </h3>
                             </div>
@@ -159,7 +156,7 @@
                                 <p class="text-muted mb-3">Clients with verified payment and photos already uploaded:
                                 </p>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table table-modern">
                                         <thead>
                                             <tr>
                                                 <th>Booking ID</th>
@@ -219,7 +216,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table table-modern">
                                         <thead>
                                             <tr>
                                                 <th>Folder ID</th>
@@ -290,7 +287,7 @@
                 <div class="modal fade" id="uploadModal" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                            <div class="modal-header">
+                            <div class="modal-header modal-header-gradient">
                                 <h5 class="modal-title"><i class="bi bi-cloud-upload"></i> Upload Photo Link</h5>
                                 <button type="button" class="btn-close btn-close-white"
                                     data-bs-dismiss="modal"></button>
@@ -340,7 +337,7 @@
                 <div class="modal fade" id="editModal" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                            <div class="modal-header">
+                            <div class="modal-header bg-gradient-warning text-white">
                                 <h5 class="modal-title"><i class="bi bi-pencil"></i> Edit Photo Link</h5>
                                 <button type="button" class="btn-close btn-close-white"
                                     data-bs-dismiss="modal"></button>
@@ -382,8 +379,7 @@
                 <div class="modal fade" id="deleteModal" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content" style="border-radius: 16px;">
-                            <div class="modal-header"
-                                style="background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; border-radius: 16px 16px 0 0;">
+                            <div class="modal-header bg-gradient-danger">
                                 <h5 class="modal-title"><i class="bi bi-exclamation-triangle"></i> Confirm Delete</h5>
                                 <button type="button" class="btn-close btn-close-white"
                                     data-bs-dismiss="modal"></button>

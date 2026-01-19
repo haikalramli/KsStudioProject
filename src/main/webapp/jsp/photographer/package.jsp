@@ -46,21 +46,21 @@
 
                         <!-- Stats -->
                         <div class="stats-row">
-                            <div class="stat-card">
+                            <div class="stat-card card-hover">
                                 <div class="stat-icon indoor"><i class="bi bi-house"></i></div>
                                 <div class="stat-info">
                                     <span class="stat-label">Indoor Packages</span>
                                     <span class="stat-value">${indoorCount}</span>
                                 </div>
                             </div>
-                            <div class="stat-card">
+                            <div class="stat-card card-hover">
                                 <div class="stat-icon outdoor"><i class="bi bi-tree"></i></div>
                                 <div class="stat-info">
                                     <span class="stat-label">Outdoor Packages</span>
                                     <span class="stat-value">${outdoorCount}</span>
                                 </div>
                             </div>
-                            <div class="stat-card">
+                            <div class="stat-card card-hover">
                                 <div class="stat-icon total"><i class="bi bi-box-seam"></i></div>
                                 <div class="stat-info">
                                     <span class="stat-label">Total Packages</span>
@@ -91,7 +91,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table table-modern">
                                         <thead>
                                             <tr>
                                                 <th>Image</th>
@@ -181,7 +181,7 @@
                 <div class="modal fade" id="createIndoorModal" tabindex="-1">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                            <div class="modal-header">
+                            <div class="modal-header modal-header-gradient">
                                 <h5 class="modal-title"><i class="bi bi-house"></i> Create Indoor Package</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
@@ -252,7 +252,7 @@
                 <div class="modal fade" id="createOutdoorModal" tabindex="-1">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                            <div class="modal-header">
+                            <div class="modal-header modal-header-gradient">
                                 <h5 class="modal-title"><i class="bi bi-tree"></i> Create Outdoor Package</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
@@ -376,8 +376,7 @@
                 <div class="modal fade" id="editModal" tabindex="-1">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                            <div class="modal-header"
-                                style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+                            <div class="modal-header modal-header-gradient">
                                 <h5 class="modal-title"><i class="bi bi-pencil"></i> Edit Package</h5>
                                 <button type="button" class="btn-close btn-close-white"
                                     data-bs-dismiss="modal"></button>

@@ -36,25 +36,22 @@
 
                         <!-- Stats -->
                         <div class="stats-row">
-                            <div class="stat-card">
-                                <div class="stat-icon" style="background: linear-gradient(135deg, #ffc107, #ff9800);"><i
-                                        class="bi bi-hourglass-split"></i></div>
+                            <div class="stat-card card-hover">
+                                <div class="stat-icon bg-gradient-warning"><i class="bi bi-hourglass-split"></i></div>
                                 <div class="stat-info">
                                     <span class="stat-label">Pending Confirm</span>
                                     <span class="stat-value">${pendingPayments.size()}</span>
                                 </div>
                             </div>
-                            <div class="stat-card">
-                                <div class="stat-icon" style="background: linear-gradient(135deg, #28a745, #20c997);"><i
-                                        class="bi bi-check-circle"></i></div>
+                            <div class="stat-card card-hover">
+                                <div class="stat-icon bg-gradient-success"><i class="bi bi-check-circle"></i></div>
                                 <div class="stat-info">
                                     <span class="stat-label">Completed</span>
                                     <span class="stat-value">${completedPayments.size()}</span>
                                 </div>
                             </div>
-                            <div class="stat-card">
-                                <div class="stat-icon" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);"><i
-                                        class="bi bi-clock-history"></i></div>
+                            <div class="stat-card card-hover">
+                                <div class="stat-icon bg-gradient-purple"><i class="bi bi-clock-history"></i></div>
                                 <div class="stat-info">
                                     <span class="stat-label">Total History</span>
                                     <span class="stat-value">${confirmHistory.size()}</span>
@@ -64,14 +61,14 @@
 
                         <!-- SECTION 1: PENDING CONFIRM PAYMENT -->
                         <div class="card mb-4">
-                            <div class="card-header" style="background: linear-gradient(135deg, #ffc107, #ff9800);">
+                            <div class="card-header bg-gradient-warning">
                                 <h3 class="text-white mb-0"><i class="bi bi-hourglass-split"></i> Pending Confirm
                                     Payment</h3>
                             </div>
                             <div class="card-body">
                                 <p class="text-muted mb-3">Payments submitted by clients awaiting verification:</p>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table table-modern">
                                         <thead>
                                             <tr>
                                                 <th>Booking</th>
@@ -171,14 +168,14 @@
 
                         <!-- SECTION 2: COMPLETE CONFIRM PAYMENT -->
                         <div class="card mb-4">
-                            <div class="card-header" style="background: linear-gradient(135deg, #28a745, #20c997);">
+                            <div class="card-header bg-gradient-success">
                                 <h3 class="text-white mb-0"><i class="bi bi-check-circle"></i> Complete Confirm Payment
                                 </h3>
                             </div>
                             <div class="card-body">
                                 <p class="text-muted mb-3">Payments that have been fully verified:</p>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table table-modern">
                                         <thead>
                                             <tr>
                                                 <th>Booking</th>
@@ -260,7 +257,7 @@
                             <div class="card-body">
                                 <p class="text-muted mb-3">All payment verification history:</p>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table table-modern">
                                         <thead>
                                             <tr>
                                                 <th>Pay ID</th>
@@ -339,8 +336,7 @@
                 <div class="modal fade" id="verifyModal" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                            <div class="modal-header"
-                                style="background: linear-gradient(135deg, #28a745, #20c997); color: white;">
+                            <div class="modal-header bg-gradient-success">
                                 <h5 class="modal-title"><i class="bi bi-check-circle"></i> Verify Payment</h5>
                                 <button type="button" class="btn-close btn-close-white"
                                     data-bs-dismiss="modal"></button>
@@ -384,8 +380,7 @@
                 <div class="modal fade" id="confirmVerifyModal" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content" style="border-radius: 16px;">
-                            <div class="modal-header"
-                                style="background: linear-gradient(135deg, #22c55e, #16a34a); color: #fff; border-radius: 16px 16px 0 0;">
+                            <div class="modal-header bg-gradient-success">
                                 <h5 class="modal-title"><i class="bi bi-shield-check"></i> Confirm Verification</h5>
                                 <button type="button" class="btn-close btn-close-white"
                                     data-bs-dismiss="modal"></button>
@@ -410,8 +405,7 @@
                 <div class="modal fade" id="rejectModal" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content" style="border-radius: 16px;">
-                            <div class="modal-header"
-                                style="background: linear-gradient(135deg, #dc3545, #e91e63); color: #fff; border-radius: 16px 16px 0 0;">
+                            <div class="modal-header bg-gradient-danger">
                                 <h5 class="modal-title"><i class="bi bi-x-circle"></i> Reject Payment</h5>
                                 <button type="button" class="btn-close btn-close-white"
                                     data-bs-dismiss="modal"></button>
