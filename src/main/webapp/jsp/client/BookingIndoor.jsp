@@ -46,6 +46,7 @@
                                         </div>
                                         <div class="card-footer bg-white border-0">
                                             <button class="btn btn-primary w-100"
+                                                style="background: #2f5d50; color: white;"
                                                 onclick="openBookingModal(${pkg.pkgId}, '${pkg.pkgName}', ${pkg.pkgPrice}, ${pkg.numOfPax})">
                                                 <i class="bi bi-calendar-check"></i> Book Now
                                             </button>

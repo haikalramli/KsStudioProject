@@ -51,16 +51,14 @@
 
                     .navmenu .nav-login {
                         background: transparent !important;
-                        color: #ff6b6b !important;
-                        border: 2px solid #ff6b6b !important;
-                        padding: 8px 20px !important;
-                        border-radius: 50px !important;
-                        transition: all 0.3s ease !important;
+                        color: #E6CCB2 !important;
+                        border: 2px solid #E6CCB2 !important;
                     }
 
                     .navmenu .nav-login:hover {
-                        background-color: #ff6b6b !important;
-                        color: #fff !important;
+                        background-color: #E6CCB2 !important;
+                        color: #2f5d50 !important;
+                        /* Teks berubah jadi hijau saat hover agar kontras */
                     }
 
                     .navmenu .nav-login i {

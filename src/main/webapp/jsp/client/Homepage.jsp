@@ -12,8 +12,9 @@
                             <h1>Forget The Hassle, Book Your Perfect Shoot</h1>
                             <p class="lead">We provide everything you need to capture timeless moments. It's time to
                                 create memories that last forever.</p>
-                            <a href="${pageContext.request.contextPath}/packages"
-                                class="btn btn-primary btn-lg mt-3">View Packages</a>
+                            <a href="${pageContext.request.contextPath}/packages" class="btn btn-lg mt-3"
+                                style="background: #2f5d50; color: white;">View
+                                Packages</a>
                         </div>
                     </div>
                     <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
