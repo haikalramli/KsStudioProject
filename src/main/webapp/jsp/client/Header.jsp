@@ -53,7 +53,7 @@
                         background: transparent !important;
                         color: #E6CCB2 !important;
                         border: 2px solid #E6CCB2 !important;
-                        padding: 8px 25px !important;
+                        padding: 8px 30px !important;
                         border-radius: 50px !important;
                         transition: all 0.3s ease;
                     }
@@ -61,6 +61,7 @@
                     .navmenu .nav-login:hover {
                         background-color: #E6CCB2 !important;
                         color: #2f5d50 !important;
+                        border-radius: 50px !important;
                     }
 
                     .navmenu .nav-login i {
